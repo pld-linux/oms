@@ -54,7 +54,7 @@ Statyczne biblioteki OMS.
 
 %build
 aclocal
-autoconf
+%{__autoconf}
 CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
 	--enable-static \
