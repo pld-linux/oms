@@ -5,8 +5,6 @@ Version:	0.1.2
 Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
-Group(de):	X11/Applikationen/Multimedia
-Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www.linuxvideo.org/%{name}/data/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
 URL:		http://www.linuxvideo.org/oms/
@@ -30,13 +28,6 @@ OMS - Open Media System, a multimedia framework.
 Summary:	Development libraries and headers of OMS
 Summary(pl):	Pliki nagЁСwkowe do OMS
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name} = %{version}
 
 %description devel
@@ -49,13 +40,6 @@ Pliki nagЁСwkowe do OMS.
 Summary:	Static libraries of OMS
 Summary(pl):	Statyczne biblioteki OMS
 Group:		Development/Libraries
-Group(de):	Entwicklung/Libraries
-Group(es):	Desarrollo/Bibliotecas
-Group(fr):	Development/Librairies
-Group(pl):	Programowanie/Biblioteki
-Group(pt_BR):	Desenvolvimento/Bibliotecas
-Group(ru):	Разработка/Библиотеки
-Group(uk):	Розробка/Б╕бл╕отеки
 Requires:	%{name}-devel = %{version}
 
 %description static
