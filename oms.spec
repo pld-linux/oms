@@ -55,7 +55,7 @@ Statyczne biblioteki OMS.
 %patch1 -p1
 
 %build
-aclocal
+%{__aclocal}
 %{__autoconf}
 CFLAGS="%{rpmcflags} -I%{_includedir}"
 %configure \
