@@ -9,11 +9,13 @@ Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
 Source0:	http://www.linuxvideo.org/%{name}/data/%{name}-%{version}.tar.gz
 URL:		http://www.linuxvideo.org/oms/
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	glib-devel
 BuildRequires:	SDL-devel
 BuildRequires:	esound-devel
 BuildRequires:	XFree86-devel
+BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		 _prefix	 /usr/X11R6
 
@@ -67,7 +69,9 @@ Statyczne biblioteki OMS.
 %build
 CC="%{__cc} -I%{_includedir}"; export CC
 
-%configure2_13 \
+aclocal
+autoconf
+%configure \
 	--enable-static \
 	--enable-shared
 
@@ -89,7 +93,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc {README,ChangeLog}*
+%doc *.gz
 %attr(755,root,root) %{_bindir}/b*
 %attr(755,root,root) %{_bindir}/c*
 %attr(755,root,root) %{_bindir}/d*
