@@ -2,11 +2,12 @@ Summary:	OMS - Open Media System, a multimedia framework
 Summary(pl):	¦rodowisko multimedialne Open Media System
 Name:		oms
 Version:	0.1.2
-Release:	2
+Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
 Source0:	http://www.linuxvideo.org/%{name}/data/%{name}-%{version}.tar.gz
 Patch0:		%{name}-opt.patch
+Patch1:		%{name}-types.patch
 URL:		http://www.linuxvideo.org/oms/
 BuildRequires:	SDL-devel
 BuildRequires:	XFree86-devel
@@ -49,8 +50,9 @@ Static libraries of OMS.
 Statyczne biblioteki OMS.
 
 %prep
-%setup  -q
-%patch -p1
+%setup -q
+%patch0 -p1
+%patch1 -p1
 
 %build
 aclocal
@@ -69,8 +71,6 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	m4datadir=%{_aclocaldir}
 
-gzip -9nf README ChangeLog
-
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -79,7 +79,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README ChangeLog
 %attr(755,root,root) %{_bindir}/b*
 %attr(755,root,root) %{_bindir}/c*
 %attr(755,root,root) %{_bindir}/d*
