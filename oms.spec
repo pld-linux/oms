@@ -1,7 +1,7 @@
 Summary:	OMS - Open Media System, a multimedia framework
 Name:		oms
 Version:	0.1.2
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
@@ -36,7 +36,7 @@ Group:		Development/Libraries
 Group(de):	Entwicklung/Libraries
 Group(fr):	Development/Librairies
 Group(pl):	Programowanie/Biblioteki
-Requires:	%{name}=%{version}
+Requires:	%{name}-devel = %{version}
 
 %description static
 Static libraries of OMS.
