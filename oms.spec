@@ -6,7 +6,7 @@ License:	GPL
 Group:		X11/Applications/Multimedia
 Group(de):	X11/Applikationen/Multimedia
 Group(pl):	X11/Aplikacje/Multimedia
-Source0:	http://www.linuxvideo.org/download/%{name}-%{version}.tar.gz
+Source0:	http://www.linuxvideo.org/%{name}/data/%{name}-%{version}.tar.gz
 URL:		http://www.linuxvideo.org/%{name}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	glib-devel
