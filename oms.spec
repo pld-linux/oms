@@ -16,7 +16,7 @@ BuildRequires:	esound-devel
 BuildRequires:	glib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		 _prefix	 /usr/X11R6
+%define		_prefix		 /usr/X11R6
 
 %description
 OMS - Open Media System, a multimedia framework.
@@ -65,8 +65,9 @@ CFLAGS="%{rpmcflags} -I%{_includedir}"
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install DESTDIR=$RPM_BUILD_ROOT \
-    m4datadir=%{_aclocaldir}
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT \
+	m4datadir=%{_aclocaldir}
 
 gzip -9nf README ChangeLog
 
