@@ -46,7 +46,7 @@ Static libraries of OMS.
 
 %build
 export CC="gcc -I%{_includedir}"
-%configure --enable-static --enable-shared
+%configure2_13 --enable-static --enable-shared
 %{__make} m4datadir=%{_aclocaldir}
 
 %install
