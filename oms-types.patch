@@ -1,0 +1,95 @@
+--- oms-0.1.2/src/ifo/libifo/ifo_read.c.orig	Thu Dec 14 15:21:16 2000
++++ oms-0.1.2/src/ifo/libifo/ifo_read.c	Mon Sep  2 15:42:44 2002
+@@ -102,7 +102,7 @@
+ {
+ 	ifo_t *ifo;
+ 
+-	LOG (LOG_DEBUG, "offset: %llx", pos);
++	LOG (LOG_DEBUG, "offset: %llx", (unsigned long long)pos);
+ 
+ 	if (fd < 0) {
+ 		LOG (LOG_ERROR, "invalid file descriptor");
+@@ -124,7 +124,7 @@
+ 	ifo->pos = pos; 
+ 
+ 	if (lseek (fd, pos, SEEK_SET) == -1) {
+-		LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", pos);
++		LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", (unsigned long long)pos);
+ 		free (ifo->tbl[ID_MAT]);
+ 		free (ifo);
+ 		return NULL;
+--- oms-0.1.2/src/ifo/libifo/misc.c.orig	Thu Nov 30 12:04:43 2000
++++ oms-0.1.2/src/ifo/libifo/misc.c	Mon Sep  2 15:45:45 2002
+@@ -64,7 +64,7 @@
+ 
+ 	pos =  ifo->pos + offset * DVD_VIDEO_LB_LEN;
+ 	if (lseek (ifo->fd, pos, SEEK_SET) == -1) {
+-		LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", pos);
++		LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", (unsigned long long)pos);
+ 		return -1;
+ 	}
+ 
+@@ -93,7 +93,7 @@
+ 
+ 		pos = ifo->pos + offset * DVD_VIDEO_LB_LEN;
+ 		if (lseek (ifo->fd, pos, SEEK_SET) == -1) {
+-			LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", pos);
++			LOG (LOG_ERROR, "error in lseek (pos: 0x%llx)", (unsigned long long)pos);
+ 			return -1;
+ 		}
+ 
+--- oms-0.1.2/src/plugin/input/input_udf.c.orig	Sun Jan  7 11:23:07 2001
++++ oms-0.1.2/src/plugin/input/input_udf.c	Mon Sep  2 15:49:12 2002
+@@ -274,7 +274,7 @@
+ 
+ 	if (priv.fd >= 0) {
+         	if (lseek (priv.fd_raw, pos*(off_t)input.blocksize, SEEK_SET) == -1) {
+-                	LOG (LOG_ERROR, "error in lseek at pos 0x%Lx", priv.pos);
++                	LOG (LOG_ERROR, "error in lseek at pos 0x%llx", (unsigned long long)priv.pos);
+                 	return -1;
+ 		} else
+ 			return 0;
+--- oms-0.1.2/src/plugin/decaps/decaps_ps.c.orig	Fri Jan 12 15:51:21 2001
++++ oms-0.1.2/src/plugin/decaps/decaps_ps.c	Mon Sep  2 15:54:02 2002
+@@ -102,7 +102,7 @@
+ 	buf_entry->data = buf_entry->mem;
+ 	buf_entry->data_len = buf_entry->mem_len;
+ 
+-	LOG (LOG_DEBUG, "mem_len: %x", buf_entry->mem_len);
++	LOG (LOG_DEBUG, "mem_len: %lx", (unsigned long)buf_entry->mem_len);
+ 
+ 	return buf_entry->mem;
+ }
+--- oms-0.1.2/src/plugin/nav/nav_dvd.c.orig	Fri Jan 12 16:04:48 2001
++++ oms-0.1.2/src/plugin/nav/nav_dvd.c	Mon Sep  2 15:57:50 2002
+@@ -128,7 +128,7 @@
+ static dvd_priv_t dvd_priv;
+ 
+ static int _dvd_next_cell (dvd_priv_t * priv, uint32_t cpos_index);
+-static int _dvd_pre_read (void *self, void *buf, size_t count);
++static ssize_t _dvd_pre_read (void *self, void *buf, size_t count);
+ 
+ #ifdef DENT_DVDNAVDUMP
+ static int _dvd_post_write (buf_t * buf, buf_entry_t * buf_entry);
+@@ -778,7 +778,7 @@
+  * get next cellpiece (block) from input
+  **/
+ 
+-static int _dvd_pre_read (void *self, void *buf, size_t count)
++static ssize_t _dvd_pre_read (void *self, void *buf, size_t count)
+ {
+ 	int ret;
+ 	struct dvd_priv_struct *priv = &dvd_priv;
+--- oms-0.1.2/src/plugin/nav/nav_dvd_pkt.c.orig	Fri Jan 12 16:04:48 2001
++++ oms-0.1.2/src/plugin/nav/nav_dvd_pkt.c	Mon Sep  2 16:01:20 2002
+@@ -263,8 +263,8 @@
+ {
+ 	if (((buf_pos - buf) + count) > bufsize) {
+ 		printf
+-		    ("***** No buffer space to read %ld bytes at offset %d\n",
+-		     count, buf_pos - buf);
++		    ("***** No buffer space to read %ld bytes at offset %ld\n",
++		     count, (long)(buf_pos - buf));
+ 	}
+ 
+ 	cur_pos = buf_pos;
