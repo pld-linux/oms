@@ -17,7 +17,6 @@ BuildRequires:	esound-devel
 BuildRequires:	glib-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		 /usr/X11R6
 
 %description
 OMS - Open Media System, a multimedia framework.
