@@ -5,7 +5,7 @@ Version:	0.1.2
 Release:	3
 License:	GPL
 Group:		X11/Applications/Multimedia
-Source0:	http://www.linuxvideo.org/%{name}/data/%{name}-%{version}.tar.gz
+Source0:	http://www.linuxvideo.org/oms/data/%{name}-%{version}.tar.gz
 # Source0-md5:	8eb5d1004dc4918085c335683a82c583
 Patch0:		%{name}-opt.patch
 Patch1:		%{name}-types.patch
