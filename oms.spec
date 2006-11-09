@@ -29,7 +29,7 @@ OMS - Open Media System, a multimedia framework.
 Summary:	Development libraries and headers of OMS
 Summary(pl):	Pliki nag³ówkowe do OMS
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{version}-%{release}
 
 %description devel
 Development libraries and headers of OMS.
@@ -41,7 +41,7 @@ Pliki nag³ówkowe do OMS.
 Summary:	Static libraries of OMS
 Summary(pl):	Statyczne biblioteki OMS
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 Static libraries of OMS.
