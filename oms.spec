@@ -1,5 +1,5 @@
 Summary:	OMS - Open Media System, a multimedia framework
-Summary(pl.UTF-8):   Środowisko multimedialne Open Media System
+Summary(pl.UTF-8):	Środowisko multimedialne Open Media System
 Name:		oms
 Version:	0.1.2
 Release:	3
@@ -27,7 +27,7 @@ OMS - Open Media System, a multimedia framework.
 
 %package devel
 Summary:	Development libraries and headers of OMS
-Summary(pl.UTF-8):   Pliki nagłówkowe do OMS
+Summary(pl.UTF-8):	Pliki nagłówkowe do OMS
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -39,7 +39,7 @@ Pliki nagłówkowe do OMS.
 
 %package static
 Summary:	Static libraries of OMS
-Summary(pl.UTF-8):   Statyczne biblioteki OMS
+Summary(pl.UTF-8):	Statyczne biblioteki OMS
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
